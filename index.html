@@ -311,31 +311,6 @@
       50% { transform: scaleY(0.65); transform-origin: top; opacity: 0.5; }
     }
 
-    .marquee {
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-      background: var(--accent);
-      color: #1a0c08;
-    }
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: ticker 36s linear infinite;
-    }
-    .marquee p {
-      margin: 0;
-      padding: 0.82rem 0.8rem;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    @keyframes ticker {
-      to { transform: translateX(-50%); }
-    }
-
     .sheet {
       position: relative;
       z-index: 1;
@@ -655,7 +630,6 @@
       html { scroll-behavior: auto; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
       .js .line > span,
-      .marquee-track,
       .mesh span,
       .caret,
       .scroll-hint i { animation: none; }
@@ -663,7 +637,7 @@
 
     @media print {
       @page { margin: 14mm; }
-      .spotlight, .noise, .progress, .mesh, .marquee, .site-nav,
+      .spotlight, .noise, .progress, .mesh, .site-nav,
       .pdf-btn, .scroll-hint, .caret { display: none !important; }
       body, .hero, .contact, .sheet {
         background: white !important;
@@ -725,13 +699,6 @@
         <a class="scroll-hint" href="#profil"><span>Scroll</span><i></i></a>
       </div>
     </section>
-
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <p>UI/UX Design · Figma · HTML · CSS · React · Tailwind · KI-Workflow · VS Code · Cursor · Windsurf · Ausbildung · Hagen ·&nbsp;</p>
-        <p>UI/UX Design · Figma · HTML · CSS · React · Tailwind · KI-Workflow · VS Code · Cursor · Windsurf · Ausbildung · Hagen ·&nbsp;</p>
-      </div>
-    </div>
 
     <div class="sheet">
       <section id="profil">
