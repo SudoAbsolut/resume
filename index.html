@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Andrii Zhuravlov aus Hagen bewirbt sich um eine Ausbildung in UI/UX-Design und Softwareentwicklung.">
+  <meta name="theme-color" content="#0c0b09">
+  <title>Andrii Zhuravlov — Ausbildung in UI/UX & Software</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230c0b09' width='32' height='32'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='14' fill='%23f6f1e8'%3EAZ%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,460;1,9..144,560&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.remove("no-js");document.documentElement.classList.add("js");</script>
+  <style>
+    :root {
+      --night: #0c0b09;
+      --night-ink: #f6f1e8;
+      --night-soft: rgba(246, 241, 232, 0.74);
+      --paper: #f3eee4;
+      --paper-2: #faf7f2;
+      --ink: #1b1914;
+      --muted: #5e584e;
+      --line: rgba(27, 25, 20, 0.14);
+      --accent: #ff3d1f;
+      --mx: 72vw;
+      --my: 38vh;
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--night-ink);
+      font-family: Outfit, "Avenir Next", "Segoe UI", sans-serif;
+      font-weight: 400;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      overflow-x: clip;
+    }
+    img { max-width: 100%; }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    ::selection { background: var(--accent); color: #1a0c08; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 100;
+      background: white;
+      color: black;
+      padding: 0.5rem 0.8rem;
+    }
+    .skip:focus { top: 1rem; }
+
+    .spotlight {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(246, 241, 232, 0.55) 1.05px, transparent 1.15px);
+      background-size: 22px 22px;
+      -webkit-mask-image: radial-gradient(circle 260px at var(--mx) var(--my), #000 0%, transparent 72%);
+      mask-image: radial-gradient(circle 260px at var(--mx) var(--my), #000 0%, transparent 72%);
+    }
+    .noise {
+      position: fixed;
+      inset: -20%;
+      z-index: 7;
+      pointer-events: none;
+      opacity: 0.07;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      z-index: 40;
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      background: var(--accent);
+      pointer-events: none;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem 1.5rem;
+      padding: 1rem 1.4rem;
+      color: var(--night-ink);
+      transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+    }
+    .site-header.is-solid {
+      background: rgba(243, 238, 228, 0.92);
+      color: var(--ink);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+      color-scheme: light;
+    }
+    .logo {
+      font-family: Fraunces, Georgia, serif;
+      font-style: italic;
+      font-weight: 560;
+      font-size: 1.45rem;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+    }
+    .site-nav {
+      display: flex;
+      gap: 1.15rem;
+      align-items: center;
+      scrollbar-width: none;
+    }
+    .site-nav::-webkit-scrollbar { display: none; }
+    .site-nav a {
+      text-decoration: none;
+      font-size: 0.92rem;
+      opacity: 0.7;
+    }
+    .site-nav a:hover,
+    .site-nav a.is-active { opacity: 1; }
+    .site-nav a.is-active {
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 0.35em;
+    }
+    .header-tools {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .pdf-btn, .mail-btn {
+      appearance: none;
+      border: 1px solid currentColor;
+      background: transparent;
+      color: inherit;
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pdf-btn:hover, .mail-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #1a0c08;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 3rem));
+      margin-inline: auto;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 6.8rem 0 1.5rem;
+    }
+    .mesh {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .mesh span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+    }
+    .mesh span:nth-child(1) {
+      width: min(52vw, 640px);
+      height: min(52vw, 640px);
+      background: #ff3d1f;
+      opacity: 0.2;
+      top: -18%;
+      right: -6%;
+      animation: drift 18s ease-in-out infinite;
+    }
+    .mesh span:nth-child(2) {
+      width: min(42vw, 520px);
+      height: min(42vw, 520px);
+      background: #e6c48a;
+      opacity: 0.14;
+      bottom: -18%;
+      left: -10%;
+      animation: drift 22s ease-in-out infinite reverse;
+    }
+    .mesh span:nth-child(3) {
+      width: min(28vw, 340px);
+      height: min(28vw, 340px);
+      background: #c46a3a;
+      opacity: 0.16;
+      top: 38%;
+      left: 32%;
+      animation: drift 26s ease-in-out infinite;
+    }
+    @keyframes drift {
+      50% { transform: translate3d(4%, -3%, 0) scale(1.06); }
+    }
+    .hero-top, .hero-foot {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-end;
+    }
+    .eyebrow, .mono {
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--night-soft);
+    }
+    .hero-mid { position: relative; z-index: 1; container-type: inline-size; }
+    .hero h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.8rem, 14cqi, 8.4rem);
+      line-height: 0.86;
+      letter-spacing: -0.045em;
+      color: var(--night-ink);
+    }
+    .hero h1 .last {
+      font-style: italic;
+      font-weight: 460;
+    }
+    .line { display: block; overflow: hidden; }
+    .js .line > span {
+      display: block;
+      white-space: nowrap;
+      animation: rise 1.05s cubic-bezier(0.16, 0.84, 0.28, 1) both;
+    }
+    .js .line:nth-child(2) > span { animation-delay: 0.1s; }
+    @keyframes rise {
+      from { transform: translateY(108%); }
+      to { transform: none; }
+    }
+    .caret {
+      display: inline-block;
+      width: 0.055em;
+      height: 0.58em;
+      margin-left: 0.1em;
+      background: var(--accent);
+      transform: translateY(0.04em);
+      animation: blink 1.15s steps(1) infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .hero-copy {
+      margin-top: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+    }
+    .lead {
+      margin: 0;
+      max-width: 34rem;
+      font-size: clamp(1.12rem, 2vw, 1.4rem);
+      font-weight: 300;
+      line-height: 1.45;
+      color: rgba(246, 241, 232, 0.9);
+    }
+    .scroll-hint {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      color: var(--night-soft);
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .scroll-hint i {
+      width: 1px;
+      height: 46px;
+      background: linear-gradient(var(--accent), transparent);
+      animation: stretch 1.8s ease-in-out infinite;
+    }
+    @keyframes stretch {
+      50% { transform: scaleY(0.65); transform-origin: top; opacity: 0.5; }
+    }
+
+    .marquee {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      background: var(--accent);
+      color: #1a0c08;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 36s linear infinite;
+    }
+    .marquee p {
+      margin: 0;
+      padding: 0.82rem 0.8rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    @keyframes ticker {
+      to { transform: translateX(-50%); }
+    }
+
+    .sheet {
+      position: relative;
+      z-index: 1;
+      background: var(--paper);
+      color: var(--ink);
+      color-scheme: light;
+    }
+    .sheet section { padding: 5.2rem 0; }
+    .sheet section + section { border-top: 1px solid var(--line); }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 0.9rem;
+      margin-bottom: 2.4rem;
+    }
+    .sec-head span {
+      font-family: Fraunces, Georgia, serif;
+      font-style: italic;
+      font-weight: 560;
+      color: var(--accent);
+      font-size: 1.35rem;
+    }
+    .sec-head h2 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.7rem, 5vw, 4.5rem);
+      letter-spacing: -0.035em;
+      line-height: 0.92;
+    }
+    .prose {
+      max-width: 40rem;
+    }
+    .prose p { margin: 0 0 1rem; }
+    .prose p:last-child { margin-bottom: 0; }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.75fr);
+      gap: 4rem;
+      align-items: start;
+    }
+    .spec { border-top: 1px solid var(--ink); padding-top: 0.9rem; }
+    .spec dl { margin: 0; }
+    .spec-label {
+      margin: 1.3rem 0 0.2rem;
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .spec-label:first-child { margin-top: 0; }
+    .spec-row {
+      display: grid;
+      grid-template-columns: 8.2rem 1fr;
+      gap: 0.8rem;
+      padding: 0.78rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .spec dt { color: var(--muted); font-size: 0.92rem; }
+    .spec dd { margin: 0; }
+    .langs { list-style: none; margin: 0; padding: 0; }
+    .langs li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.78rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .langs b { font-weight: 500; }
+
+    .bento {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 0.8rem;
+    }
+    .card {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      padding: 1.35rem 1.3rem 1.25rem;
+      position: relative;
+      transition: transform 0.35s ease, border-color 0.35s ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: rgba(27, 25, 20, 0.4); }
+    .card::before, .card::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .card::before { top: 8px; left: 8px; border-top: 1.5px solid var(--accent); border-left: 1.5px solid var(--accent); }
+    .card::after { right: 8px; bottom: 8px; border-right: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent); }
+    .card:hover::before, .card:hover::after { opacity: 1; }
+    .tag {
+      display: inline-block;
+      margin-bottom: 1.4rem;
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .card h3 {
+      margin: 0 0 0.45rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 560;
+      font-size: 1.85rem;
+      letter-spacing: -0.03em;
+    }
+    .card p { margin: 0; color: var(--muted); }
+    .wide { min-height: 100%; }
+    .quad {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+    }
+    .quad .card h3 { font-size: 1.45rem; }
+    .tools {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.5rem;
+      align-items: center;
+      padding-top: 0.4rem;
+    }
+    .tools span.label {
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 0.4rem;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.92rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.6rem;
+    }
+    .steps article { padding-top: 0.8rem; border-top: 1px solid var(--ink); }
+    .steps span {
+      font-family: Fraunces, Georgia, serif;
+      font-style: italic;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    .steps h3 {
+      margin: 0.35rem 0 0.4rem;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 560;
+      letter-spacing: -0.03em;
+    }
+    .steps p { margin: 0; color: var(--muted); }
+
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .timeline li {
+      display: grid;
+      grid-template-columns: 9.5rem 1fr;
+      gap: 1.2rem;
+      padding: 1.15rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline li:first-child { border-top: 1px solid var(--ink); }
+    .where {
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.35rem;
+    }
+    .timeline h3 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 560;
+      font-size: clamp(1.45rem, 2vw, 1.9rem);
+      letter-spacing: -0.03em;
+    }
+    .timeline p { margin: 0.15rem 0 0; color: var(--muted); }
+    .path-note {
+      margin: 0 0 1.2rem;
+      max-width: 36rem;
+      color: var(--muted);
+    }
+
+    .quote {
+      margin: 0 0 1.6rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 460;
+      font-style: italic;
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      max-width: 18em;
+    }
+    .goals {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      margin: 2rem 0 0;
+      padding: 0;
+    }
+    .goals li {
+      padding: 1.2rem 1.1rem 1.15rem;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+    }
+    .goals span {
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .goals strong {
+      display: block;
+      margin: 0.45rem 0 0.35rem;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 560;
+      letter-spacing: -0.03em;
+    }
+    .goals p { margin: 0; color: var(--muted); }
+
+    .contact {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 0 2.5rem;
+    }
+    .contact .sec-head h2,
+    .contact .sec-head span { color: var(--night-ink); }
+    .contact .sec-head span { color: var(--accent); }
+    .mail {
+      display: inline-block;
+      margin: 0.4rem 0 1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.55rem, 4.4vw, 3.6rem);
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .mail:hover { color: var(--accent); }
+    address {
+      font-style: normal;
+      color: var(--night-soft);
+      margin-bottom: 1.6rem;
+    }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .contact .mail-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #1a0c08;
+      padding: 0.8rem 1.15rem;
+    }
+    .contact .mail-btn:hover { background: var(--night-ink); border-color: var(--night-ink); }
+    .colophon {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 4rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(246, 241, 232, 0.16);
+      color: var(--night-soft);
+      font-size: 0.88rem;
+    }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 0.84, 0.28, 1);
+    }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    @media (max-width: 980px) {
+      .profile-grid, .bento, .steps, .goals { grid-template-columns: 1fr; }
+      .quad { grid-template-columns: 1fr 1fr; }
+      .timeline li { grid-template-columns: 1fr; gap: 0.25rem; }
+    }
+    section[id] { scroll-margin-top: 5.6rem; }
+    @media (max-width: 860px) {
+      .site-header { flex-wrap: wrap; align-items: center; padding: 0.75rem 1rem 0.55rem; }
+      .site-nav {
+        order: 3;
+        width: 100%;
+        gap: 0.7rem;
+        justify-content: space-between;
+      }
+      .site-nav a { font-size: 0.8rem; }
+      .hero { padding-top: 7.6rem; }
+    }
+    @media (max-width: 700px) {
+      .wrap { width: min(1120px, calc(100% - 1.7rem)); }
+      .hero-top, .hero-copy, .hero-foot { flex-direction: column; align-items: flex-start; }
+      .quad { grid-template-columns: 1fr; }
+      .spec-row { grid-template-columns: 1fr; gap: 0.1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .js .line > span,
+      .marquee-track,
+      .mesh span,
+      .caret,
+      .scroll-hint i { animation: none; }
+    }
+
+    @media print {
+      @page { margin: 14mm; }
+      .spotlight, .noise, .progress, .mesh, .marquee, .site-nav,
+      .pdf-btn, .scroll-hint, .caret { display: none !important; }
+      body, .hero, .contact, .sheet {
+        background: white !important;
+        color: black !important;
+      }
+      .site-header {
+        position: static;
+        color: black;
+        border-bottom: 1px solid black;
+        padding: 0 0 8px;
+      }
+      .hero { min-height: 0; padding: 12px 0 0; }
+      .hero h1 { font-size: 36pt; color: black; }
+      .lead, .eyebrow, address, .colophon { color: black !important; }
+      .sheet section { padding: 18px 0; break-inside: avoid; }
+      .card, .goals li, .timeline li { break-inside: avoid; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="spotlight" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+  <a class="skip" href="#inhalt">Zum Inhalt</a>
+
+  <header class="site-header">
+    <a class="logo" href="#start">AZ</a>
+    <nav class="site-nav" aria-label="Abschnitte">
+      <a href="#profil">Profil</a>
+      <a href="#faehigkeiten">Fähigkeiten</a>
+      <a href="#bildung">Bildung</a>
+      <a href="#motivation">Motivation</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="header-tools">
+      <button class="pdf-btn" type="button">PDF</button>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <section class="hero" id="start">
+      <div class="mesh" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="wrap hero-top">
+        <p class="eyebrow">Ausbildungsbewerbung · UI/UX &amp; Software</p>
+        <p class="eyebrow">Hagen · 2026</p>
+      </div>
+      <div class="wrap hero-mid">
+        <h1 translate="no">
+          <span class="line"><span>Andrii</span></span>
+          <span class="line"><span class="last">Zhuravlov<i class="caret" aria-hidden="true"></i></span></span>
+        </h1>
+        <div class="hero-copy">
+          <p class="lead">Ich entwerfe Interfaces in Figma und lerne den Code dahinter — für eine Ausbildung, in der Gestaltung und Entwicklung zusammenkommen.</p>
+        </div>
+      </div>
+      <div class="wrap hero-foot">
+        <p class="mono">Wiesenstraße 38, 58119 Hagen</p>
+        <a class="scroll-hint" href="#profil"><span>Scroll</span><i></i></a>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <p>UI/UX Design · Figma · HTML · CSS · React · Tailwind · KI-Workflow · VS Code · Cursor · Windsurf · Ausbildung · Hagen ·&nbsp;</p>
+        <p>UI/UX Design · Figma · HTML · CSS · React · Tailwind · KI-Workflow · VS Code · Cursor · Windsurf · Ausbildung · Hagen ·&nbsp;</p>
+      </div>
+    </div>
+
+    <div class="sheet">
+      <section id="profil">
+        <div class="wrap">
+          <div class="sec-head reveal"><span>01</span><h2>Profil</h2></div>
+          <div class="profile-grid">
+            <div class="prose reveal">
+              <p>Ich bin achtzehn, aufgewachsen in Kropywnyzkyj und heute zu Hause in Hagen. Technik und Gestaltung begleiten mich, seit ich ein Kind bin. Lange blieb es ein Interesse am Rand. In den letzten Monaten ist es in die Mitte gerückt.</p>
+              <p>In Figma entwerfe ich Oberflächen und ihre Logik: Aufbau, Wege, Zustände, das Gefühl beim Weiterklicken. Parallel arbeite ich mit HTML, CSS, React und Tailwind. Code kann ich lesen und in seinem Zusammenhang verstehen. Flüssig selbst schreiben — das lerne ich noch. Genau dafür ist eine Ausbildung der richtige Ort.</p>
+              <p>An eigenen Projekten zu Hause habe ich schon gearbeitet, oft Seite an Seite mit KI. Sie kürzt mir Umwege ab — das Denken überlasse ich ihr nicht. Ich lerne schnell, bleibe dran und will, dass am Ende etwas entsteht, das für andere Menschen klar ist.</p>
+            </div>
+            <aside class="spec reveal" aria-label="Persönliche Angaben">
+              <p class="spec-label">Angaben</p>
+              <dl>
+                <div class="spec-row"><dt>Name</dt><dd translate="no">Andrii Zhuravlov</dd></div>
+                <div class="spec-row"><dt>Geboren</dt><dd>8. September 2008</dd></div>
+                <div class="spec-row"><dt>Geburtsort</dt><dd>Kropywnyzkyj, Ukraine</dd></div>
+                <div class="spec-row"><dt>Nationalität</dt><dd>ukrainisch</dd></div>
+                <div class="spec-row"><dt>Wohnort</dt><dd>Wiesenstraße 38, 58119 Hagen</dd></div>
+                <div class="spec-row"><dt>E-Mail</dt><dd><a href="mailto:andrejzuravlov9@gmail.com">andrejzuravlov9@gmail.com</a></dd></div>
+              </dl>
+              <p class="spec-label">Sprachen</p>
+              <ul class="langs">
+                <li><span>Deutsch</span><b>B1</b></li>
+                <li><span>Englisch</span><b>A2</b></li>
+                <li><span>Ukrainisch</span><b>sicher</b></li>
+                <li><span>Russisch</span><b>sicher</b></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="faehigkeiten">
+        <div class="wrap">
+          <div class="sec-head reveal"><span>02</span><h2>Fähigkeiten</h2></div>
+          <div class="bento">
+            <article class="card wide reveal">
+              <span class="tag">Sicher</span>
+              <h3>UI/UX Design</h3>
+              <p>Zuerst die Ordnung, dann der Schmuck. Hierarchie, Abstände, Zustände und der Weg durch eine Oberfläche — darauf achte ich in Figma. Eine gute Oberfläche führt, ohne laut zu sein.</p>
+            </article>
+            <article class="card reveal">
+              <span class="tag">Versiert</span>
+              <h3>KI im Arbeitsfluss</h3>
+              <p>Eigene Lernprojekte setze ich mit KI um. Sie ist Werkzeug und Tempo, nicht Ersatz fürs Verstehen. Ich prüfe, was entsteht, und will wissen, warum es so aufgebaut ist.</p>
+            </article>
+            <div class="quad">
+              <article class="card reveal">
+                <span class="tag">Sicher</span>
+                <h3>Figma</h3>
+                <p>Frames, Flows und Prototypen. Hier entsteht die Logik, bevor der Browser sie zeigt.</p>
+              </article>
+              <article class="card reveal">
+                <span class="tag">Grundkenntnisse</span>
+                <h3>HTML &amp; CSS</h3>
+                <p>Gerüst und Erscheinung. Ich lese beides und baue kleine Seiten selbst.</p>
+              </article>
+              <article class="card reveal">
+                <span class="tag">Grundkenntnisse</span>
+                <h3>React</h3>
+                <p>Komponenten und Zustände. Die Logik verstehe ich, das freie Schreiben kommt mit der Ausbildung.</p>
+              </article>
+              <article class="card reveal">
+                <span class="tag">Grundkenntnisse</span>
+                <h3>Tailwind</h3>
+                <p>Schnelles, konsistentes Gestalten direkt im Markup.</p>
+              </article>
+            </div>
+            <div class="tools reveal">
+              <span class="label">Werkzeuge</span>
+              <span class="chip">Figma</span>
+              <span class="chip">VS Code</span>
+              <span class="chip">Cursor</span>
+              <span class="chip">Windsurf</span>
+            </div>
+          </div>
+
+          <div class="steps">
+            <article class="reveal">
+              <span>01</span>
+              <h3>Entwerfen</h3>
+              <p>In Figma lege ich Struktur, Zustände und Wege an. Zuerst muss die Oberfläche klar führen.</p>
+            </article>
+            <article class="reveal">
+              <span>02</span>
+              <h3>Verstehen</h3>
+              <p>HTML trägt, CSS gestaltet, React hält die Zustände, Tailwind beschleunigt. Diesen Aufbau lese ich schon.</p>
+            </article>
+            <article class="reveal">
+              <span>03</span>
+              <h3>Umsetzen</h3>
+              <p>Lernprojekte am eigenen Rechner, oft mit KI. Das flüssige Selbstschreiben ist mein nächster Schritt.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="bildung">
+        <div class="wrap">
+          <div class="sec-head reveal"><span>03</span><h2>Bildungsweg</h2></div>
+          <p class="path-note reveal">Von Kropywnyzkyj nach Hagen — die jüngste Station steht oben.</p>
+          <ol class="timeline">
+            <li class="reveal">
+              <span class="where">Deutschland</span>
+              <div>
+                <h3>Cuno-Berufskolleg II</h3>
+                <p>Hagen</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="where">Deutschland</span>
+              <div>
+                <h3>Kaufmannsschule I</h3>
+                <p>Hagen</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="where">Deutschland</span>
+              <div>
+                <h3>Albrecht-Dürer-Gymnasium</h3>
+                <p>Hagen</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="where">Ukraine</span>
+              <div>
+                <h3>Gymnasium „Erudyt“</h3>
+                <p>Kropywnyzkyj</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="where">Ukraine</span>
+              <div>
+                <h3>Schule Nr. 34</h3>
+                <p>Kropywnyzkyj</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="motivation">
+        <div class="wrap">
+          <div class="sec-head reveal"><span>04</span><h2>Motivation</h2></div>
+          <blockquote class="quote reveal">Ich will Oberflächen entwerfen und den Code verstehen, der sie möglich macht.</blockquote>
+          <div class="prose reveal">
+            <p>Seit der Kindheit ziehen mich IT und Design an. Die Zeit dafür kam spät — und jetzt ist sie da. Ich suche eine Ausbildung, in der ich das Handwerk richtig lerne: nicht als Zuschauer, sondern mit echten Aufgaben, bei Menschen, die es können.</p>
+            <p>Passend ist zum Beispiel eine Ausbildung zum Fachinformatiker für Anwendungsentwicklung — oder ein Beruf, in dem digitale Gestaltung und Software nebeneinander stehen. Ich bringe Gespür, Tempo und Ausdauer mit. Den Rest hole ich mir.</p>
+          </div>
+          <ul class="goals">
+            <li class="reveal">
+              <span>Richtung</span>
+              <strong>Ausbildung</strong>
+              <p>Softwareentwicklung und UI/UX, an einem Ort, der beides ernst nimmt.</p>
+            </li>
+            <li class="reveal">
+              <span>Mitbringen</span>
+              <strong>Gestaltungsgefühl</strong>
+              <p>Figma, klare Oberflächen und die Frage, ob ein Mensch den Weg findet.</p>
+            </li>
+            <li class="reveal">
+              <span>Holen</span>
+              <strong>Das Handwerk</strong>
+              <p>Code selbst schreiben, im Team arbeiten, an Aufgaben wachsen, die zählen.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <section class="contact" id="kontakt">
+      <div class="wrap">
+        <div class="sec-head reveal"><span>05</span><h2>Kontakt</h2></div>
+        <p class="eyebrow">Schreiben Sie mir.</p>
+        <a class="mail" translate="no" href="mailto:andrejzuravlov9@gmail.com?subject=Ausbildung%20UI%2FUX%20und%20Software">andrejzuravlov9@gmail.com</a>
+        <address>
+          Andrii Zhuravlov<br>
+          Wiesenstraße 38<br>
+          58119 Hagen
+        </address>
+        <div class="contact-actions">
+          <a class="mail-btn" href="mailto:andrejzuravlov9@gmail.com?subject=Ausbildung%20UI%2FUX%20und%20Software">E-Mail schreiben</a>
+          <button class="pdf-btn" type="button">Als PDF speichern</button>
+        </div>
+        <div class="colophon">
+          <span>Andrii Zhuravlov · Hagen</span>
+          <span>Start nach Absprache</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const root = document.documentElement;
+    const header = document.querySelector(".site-header");
+    const hero = document.querySelector(".hero");
+    const bar = document.querySelector(".progress");
+    const mesh = document.querySelector(".mesh");
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    addEventListener("pointermove", (e) => {
+      root.style.setProperty("--mx", e.clientX + "px");
+      root.style.setProperty("--my", e.clientY + "px");
+      if (reduce || !hero) return;
+      const rect = hero.getBoundingClientRect();
+      if (e.clientY < rect.top || e.clientY > rect.bottom) return;
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      mesh.style.transform = "translate(" + (x * 28) + "px," + (y * 18) + "px)";
+    }, { passive: true });
+
+    const contact = document.querySelector(".contact");
+    const onScroll = () => {
+      const max = root.scrollHeight - innerHeight;
+      bar.style.transform = "scaleX(" + (max > 0 ? scrollY / max : 0) + ")";
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const contactTop = contact.getBoundingClientRect().top;
+      header.classList.toggle("is-solid", heroBottom < 72 && contactTop > 72);
+    };
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    const navLinks = [...document.querySelectorAll(".site-nav a")];
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = "#" + entry.target.id;
+        navLinks.forEach((link) => {
+          const on = link.getAttribute("href") === id;
+          link.classList.toggle("is-active", on);
+          if (on) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-42% 0px -48% 0px", threshold: 0 });
+    document.querySelectorAll("main section[id]").forEach((section) => spy.observe(section));
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.18 });
+    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+    document.querySelectorAll(".pdf-btn").forEach((button) => {
+      button.addEventListener("click", () => window.print());
+    });
+  </script>
+</body>
+</html>
